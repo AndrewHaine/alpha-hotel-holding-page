@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{> head }}
+    <title><%- title %></title>
+  </head>
+  <body>
+    <div class="page">
+        <div class="bubbles" id="bubbles"></div>
+        {{> header }}
+        <div class="content">
+            <div class="left">
+                <h1>Uh oh!</h1>
+                <div class="intro">
+                    <p>That page doesn't exist!</p>
+                </div>
+            </div>
+        </div>
+        {{> footer }}
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
