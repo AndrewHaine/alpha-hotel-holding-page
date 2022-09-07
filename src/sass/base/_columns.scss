@@ -1,0 +1,9 @@
+@mixin columns() {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 15px;
+
+    @include respond(980px) {
+        column-gap: 20px;
+    }
+}

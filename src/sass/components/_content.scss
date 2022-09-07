@@ -1,0 +1,384 @@
+.page {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 10;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.header__logo {
+    font-family: var(--font-headings);
+    color: white;
+    font-size: 1.25rem;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+@include respond(480px) {
+    .header__logo {
+        font-size: 1.5rem;
+    }
+}
+
+@include respond(980px) {
+    .header__logo {
+        margin-top: 12px;
+        font-size: 1.875rem;
+    }
+}
+
+.content {
+    @include columns;
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 40px 60px;
+
+    &::before {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        width: 1600px;
+        height: 1600px;
+        background-color: var(--colour-salmon);
+        border-radius: 50%;
+        z-index: -1;
+        content: "";
+        transform: translate(0, -70%);
+    }
+
+    * {
+        color: white !important;
+    }
+
+    a {
+        @include text-decoration-flip;
+        font-weight: bold;
+    }
+}
+
+@include respond(768px) {
+    .content {
+        flex-direction: row;
+        padding: 30px 20px 120px;
+
+        &::before {
+            top: 0;
+            right: 60%;
+            transform: translate(0, -60%);
+        }
+    }
+}
+
+@include respond(980px) {
+    .content {
+        padding: 60px 20px 200px;
+    }
+}
+
+@include respond(1200px) {
+    .content {
+        padding: 140px 20px 200px;
+
+        &::before {
+            right: 50%;
+            width: 2000px;
+            height: 2000px;
+        }
+    }
+}
+
+.left {
+    grid-column: 1 / 12;
+    grid-row: 2;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1 / 12;
+    grid-row: 1;
+    margin: 0 0 50px;
+}
+
+@include respond(768px) {
+    .left {
+        grid-row: 1;
+        grid-column: 2 / 8;
+        padding-top: 30px;
+
+        h1 {
+            margin: 0 0 30px;
+        }
+    }
+
+    .right {
+        justify-content: flex-end;
+        grid-column: 8 / 11;
+    }
+}
+
+@include respond(1200px) {
+    .left {
+        grid-column: 2 / 8;
+    }
+
+    .right {
+        grid-column: 6 / 12;
+    }
+}
+
+h1,
+.h1 {
+    font-size: 2.2rem;
+    font-family: var(--font-headings);
+    line-height: 1.1;
+    margin: 0 0 20px;
+}
+
+@include respond(768px) {
+    h1,
+    .h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@include respond(980px) {
+    h1,
+    .h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@include respond(1200px) {
+    h1,
+    .h1 {
+        font-size: 4.5rem;
+    }
+}
+
+.intro {
+    line-height: 1.4;
+}
+
+@include respond(980px) {
+    .intro {
+        font-size: 1.25rem;
+    }
+}
+
+@include respond(1200px) {
+    .intro {
+        font-size: 1.5rem;
+    }
+}
+
+.headshot {
+    position: relative;
+    width: 50%;
+    flex-shrink: 0;
+    max-width: 200px;
+    user-select: none;
+    pointer-events: none;
+
+    img {
+        position: relative;
+        z-index: 1;
+    }
+
+    &::after {
+        position: absolute;
+        top: 20%;
+        left: 15%;
+        width: 70%;
+        height: 70%;
+        content: "";
+        background-color: var(--colour-salmon);
+        border-radius: 50%;
+        z-index: 0;
+    }
+}
+
+@include respond(768px) {
+    .headshot {
+        width: 240px;
+        max-width: none;
+    }
+}
+
+@include respond(980px) {
+    .headshot {
+        width: 300px;
+    }
+}
+
+.headshot__caption {
+    position: absolute;
+    display: none;
+    top: 60%;
+    right: -40%;
+    width: 40%;
+    font-size: 0.8rem;
+    font-family: var(--font-headings);
+    line-height: 1.2;
+    transform: rotate(20deg);
+
+    &::after {
+        position: absolute;
+        bottom: calc(100% + 5px);
+        left: 0;
+        width: 20px;
+        height: 60px;
+        content: "";
+        background: url('images/icons/arrow.svg') 50% / contain no-repeat;
+        transform: rotate(-60deg);
+    }
+}
+
+@include respond(360px) {
+    .headshot__caption {
+        display: block;
+    }
+}
+
+@include respond(980px) {
+    .headshot__caption {
+        right: 0;
+        top: calc(100% + 50px);
+        width: auto;
+        font-size: 1.125rem;
+        transform: rotate(5deg);
+
+        &::after {
+            bottom: calc(100% + 15px);
+            left: 60%;
+            transform: none;
+        }
+    }
+}
+
+.footer {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    font-weight: 200;
+    z-index: 10;
+    font-size: .9rem;
+}
+
+.footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+@include respond(768px) {
+    .footer__inner {
+        justify-content: space-between;
+        flex-direction: row;
+    }
+}
+
+.footer__separator {
+    padding: 0 10px;
+}
+
+.footer__left {
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px;
+}
+
+@include respond(768px) {
+    .footer__left {
+        margin: 0;
+    }
+}
+
+.footer__logos {
+    display: flex;
+}
+
+.social-icon {
+    display: block;
+    overflow: hidden;
+    text-indent: 150%;
+    white-space: nowrap;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 18px;
+    width: 18px;
+    margin-right: 10px;
+
+    &:hover {
+        transform: scale(1.1) rotate(-10deg);
+    }
+
+    &--twitter {
+        background-image: url('/images/icons/twitter.svg');
+    }
+
+    &--instagram {
+        background-image: url('/images/icons/instagram.svg');
+    }
+
+    &--github {
+        background-image: url('/images/icons/github.svg');
+    }
+
+    &--codepen {
+        background-image: url('/images/icons/codepen.svg');
+    }
+
+    &--linkedin {
+        background-image: url('/images/icons/linkedin.svg');
+    }
+}
+
+.footer__right {
+    font-size: .7rem;
+
+    a {
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@import './sass/base/reset';
+@import './sass/base/responsive';
+@import './sass/base/columns';
+@import './sass/base/mixins';
+@import './sass/base/vars';
+
+body {
+    background-color: var(--colour-dark-blue);
+    font-family: var(--font-standard);
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@import './sass/components/content';
+@import './sass/components/radio-roulette';
