@@ -21,7 +21,7 @@
                 },
                 {
                     "key": "Content-Security-Policy",
-                    "value": "script-src 'self' reporting.andrewhaine.co.uk; style-src 'self' fonts.googleapis.com; img-src 'self'; font-src 'self' fonts.googleapis.com"
+                    "value": "script-src 'self' reporting.andrewhaine.co.uk; style-src 'self' fonts.googleapis.com; img-src 'self' reporting.andrewhaine.co.uk; font-src 'self' fonts.gstatic.com"
                 }
             ]
         }
