@@ -1,9 +1,9 @@
-.radio-roulette {
+.project-link {
     display: none;
 }
 
 @include respond(768px) {
-    .radio-roulette {
+    .project-link {
         display: flex;
         align-items: center;
         padding: 12px 25px 10px 20px;
@@ -16,17 +16,17 @@
     }
 }
 
-.radio-roulette__image {
-    width: 75px;
+.project-link__image {
+    width: 60px;
     margin-right: 15px;
 }
 
-.radio-roulette__title {
+.project-link__title {
     font-size: .9rem;
     font-weight: bold;
 }
 
-.radio-roulette__content {
+.project-link__content {
     font-size: 1rem;
     font-weight: 100;
 }
